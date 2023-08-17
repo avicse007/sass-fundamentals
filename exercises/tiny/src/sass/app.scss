@@ -1,0 +1,23 @@
+$dimensions: ('m':'margin', 'p':'padding');
+$direction: (
+    't':'top', 
+    'b':'bottom',
+    'l':'left',
+    'r':'right'
+);
+
+// iteration over dimensions and direction
+@each $dim in $dimensions{
+    @each $dir in $direction{
+        @for $i from 1 through 5 {
+            $size:$i *5;
+            //getting first element of dim that is m,p
+            //getting first element of dir that is t,b,l,r
+            .#{nth($dim, 1)}-#{nth($dir,1)}-#{$size} {
+            //getting second element of dim that is margin,padding
+            //getting second element of dir that is top,bottom,left,right
+            #{nth($dim, 2)}-#{nth($dir,2)}: #{$size}px;    
+            }  
+            }
+        }
+    }
